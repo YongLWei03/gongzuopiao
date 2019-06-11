@@ -1,6 +1,6 @@
 <view>
   <view bindtap="click" class='scan-wrapper'>点我扫一扫</view>
-  <view class='bianhao'>编号：{{show}}</view>
+  <view  wx:if="{{show}}" class='bianhao'>编号：{{show}}</view>
 
   <view wx:if="{{!shebei}}">
   <form bindsubmit="querymuban">
@@ -23,11 +23,9 @@
       <text>{{ancuos[index2]}}</text>
     </picker>
   </view>
+  <input class='input-wrapper' wx:if="{{flag==0}}" name="paihaom" bindinput='onpaihao'  placeholder="写入标识牌编号" />
   <form bindsubmit="formSubmit">
-
-
     <view class="input-wrapper">
-
       <input wx:if="{{!shebei}}" name="shebeim" value='{{addshebei}}' placeholder="输入设备名称" />
     </view>
     <view class="input-wrapper">
